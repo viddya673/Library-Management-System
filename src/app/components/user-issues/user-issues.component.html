@@ -1,0 +1,50 @@
+
+<div class="col-md-6 offset-md-3">
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr class="text-centre">
+            <th>Id</th>
+            <th>Book Name</th>
+            <th>Issue Date</th>
+            <th>Due Date</th>
+            <th>Return Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="text-centre" *ngFor="let issue of issues">
+            <td> {{ issue.iid }} </td>
+            <td> {{ issue.books.bname }} </td>
+            <td> {{ issue.issueDate }} </td>
+            <td> {{ issue.dueDate }} </td>
+            <td> {{ issue.returnDate }} </td>
+            <td>
+                <button (click)="returnBook(issue.iid)" class="btn btn-outline-primary">Return</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<div class="col-md-6 offset-md-3">
+    <h3>Books Overdue</h3>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr class="text-centre">
+                <th>Id</th>
+                <th>Book Name</th>
+                <th>Issue Date</th>
+                <th>Due Date</th>
+                <th>Return Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="text-centre" *ngFor="let overdue of overdues">
+                <td> {{ overdue.iid }} </td>
+                <td> {{ overdue.books.bname }} </td>
+                <td> {{ overdue.issueDate }} </td>
+                <td> {{ overdue.dueDate }} </td>
+                <td> {{ overdue.returnDate }} </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>

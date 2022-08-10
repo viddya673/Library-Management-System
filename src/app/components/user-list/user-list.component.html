@@ -1,0 +1,58 @@
+
+<div class="col-md-6 offset-md-3">
+    <h3>Manage Users</h3>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>User Name</th>
+            <th>Email Id</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="text-centre" *ngFor="let user of users">
+            <td> {{ user.uid }} </td>
+            <td> {{ user.fullname }} </td>
+            <td> {{ user.email }} </td>
+            <td>
+                <button (click)="updatePwd(user.uid!)" class="btn btn-outline-dark">Update Password</button>
+                <button (click)="navigate(user.uid!)"class="btn btn-secondary" style="margin-left: 10px">Issues</button>
+                <button (click)="deleteUser(user.uid!)" class="btn btn-outline-danger" style="margin-left: 10px"> Delete </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<button (click)="open(content)" class="btn btn-primary">Add User</button>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add User</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <form [formGroup] = "newUserForm">
+        <div class="form-group">
+          <label>Email</label>
+            <input type="text" id="email" class="form-control" formControlName = "email" name="email">
+        </div>
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" id="fullname" class="form-control" formControlName = "fullname" name="fullname">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="text" id="password" class="form-control" formControlName = "password" name="password">
+        </div>
+      
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-outline-dark" (click)="onSubmit()">Add</button>
+    </div>
+  </form>
+</div>
+</ng-template>

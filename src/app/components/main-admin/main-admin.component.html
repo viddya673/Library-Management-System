@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a routerLink="user-list" routerLinkActive="active" class="nav-link">Manage Users</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="manage-books" routerLinkActive="active" class="nav-link">Manage Books</a>
+      </li>
+    </ul>
+    <div >
+      <ul class="navbar-nav">
+        <li class = "text-white me-auto text-centre">
+          Admin
+        </li>
+          <li class="nav-item">
+              <button class="btn btn-dark" (click)="logout()">Logout</button>
+          </li>
+      </ul>
+  </div>
+  
+    
+  </nav>
+  <router-outlet></router-outlet>

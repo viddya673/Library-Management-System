@@ -1,0 +1,28 @@
+
+<div class="col-md offset-md">
+    <h3>Books</h3>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Book Name</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>Number of Copies</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="text-centre" *ngFor="let book of books">
+            <td> {{ book.bid }} </td>
+            <td> {{ book.bname }} </td>
+            <td> {{ book.author }} </td>
+            <td> {{ book.publisher }} </td>
+            <td> {{ book.noOfCopies}} </td>
+            <td>
+                <button (click)="borrow(book.bid!)" class="btn btn-info">Borrow</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
